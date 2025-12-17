@@ -64,7 +64,7 @@ Fallback2Remove implements a transparent and auditable logging system.
 
 When enabled, the utility generates the file:
 
-SafeRemovalTray.log
+Fallback2Remove.log
 
 in the application directory.
 
@@ -144,11 +144,12 @@ To automatically start Fallback2Remove with Windows:
 
 1. Open PowerShell
 2. Navigate to the Scripts directory
-3. Run:
+3. Place the .exe release in the same folder (assuming this is your portable installation folder or choose anyone)
+4. Run:
 
-./CreateStartupShortcut.ps1
+./CreateStartupShortcut.ps1 or CreateTaskSchedule.ps1
 
-This creates a startup shortcut without modifying system policies.
+This creates a startup shortcut/ taskschedule job without modifying system policies.
 
 ---
 
