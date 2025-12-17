@@ -29,7 +29,6 @@ When this happens:
 - The Eject option may fail or never appear
 - The operating system treats the drive as a fixed internal device
 - No local removing policy works (Regardless of Windows Quick Removal or Performance Removal as observed in device manager)
-- The Windows ejection flow is logically independent of the Indexing Service; however, active indexing creates persistent file handles and pending I/O operations that prevent the OS from dismounting the volume, a conflict exacerbated by the controller's tendency to anchor the device to the SCSI bus.
 
 This behavior is commonly observed with:
 
@@ -95,6 +94,7 @@ Fallback2Remove was developed for systems where Intel USB 3.20 controllers (or s
 ### Safe Buffer Flushing
 
 The utility explicitly flushes file buffers to ensure all NAND or platter operations are complete before device removal.
+The Windows ejection flow is logically independent of the Indexing Service; however, active indexing creates persistent file handles and pending I/O operations that prevent the OS from dismounting the volume, a conflict exacerbated by the controller's tendency to anchor the device to the SCSI bus.
 
 ### Native Implementation
 
