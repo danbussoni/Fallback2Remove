@@ -28,7 +28,7 @@ When this happens:
 - The Windows 11 Safely Remove Hardware tray icon may disappear
 - The Eject option may fail or never appear
 - The operating system treats the drive as a fixed internal device
-- No local removing policy works (if driver is updated, as the root cause was per windows update, this breaks this option for each external hard drive device as observed in device manager)
+- No local removing policy works (Regardless of Windows Quick Removal or Performance Removal as observed in device manager)
 - Ejection is independent, whether device maintains index linkage with OS or not)
 
 This behavior is commonly observed with:
@@ -94,7 +94,7 @@ Fallback2Remove was developed for systems where Intel USB 3.20 controllers (or s
 
 ### Safe Buffer Flushing
 
-Regardless of Windows Quick Removal policies, the utility explicitly flushes file buffers to ensure all NAND or platter operations are complete before device removal.
+The utility explicitly flushes file buffers to ensure all NAND or platter operations are complete before device removal.
 
 ### Native Implementation
 
