@@ -1,0 +1,26 @@
+# --- AutoHotkey Specific ---
+# Arquivo compilado (se você quiser que as pessoas baixem apenas via 'Releases', ignore o .exe)
+*.exe
+
+# --- Log Files ---
+# Ignora o arquivo de log gerado pelo script para não expor nomes de drives e caminhos do seu PC
+SafeRemovalTray.log
+*.log
+
+# --- Windows Metadata ---
+# Ignora arquivos de sistema do Windows
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# --- IDE & Editor Configs ---
+# Se você usar VS Code ou outros editores
+.vscode/
+.history/
+*.bak
+*.tmp
+
+# --- Assets ---
+# Opcional: Se você quiser que os ícones fiquem no repositório, NÃO ignore .ico
+# Se quiser ignorar ícones temporários:
+# icon_cache.db
