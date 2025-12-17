@@ -53,13 +53,6 @@ Fallback2Remove identifies drives that are:
 
 Once detected, it provides a safe and direct path to the native Windows removal dialog, while guaranteeing that all pending I/O operations are completed beforehand.
 
-### Design Principles
-
-- Uses Windows native hotplug.dll
-- Forces explicit buffer flushing
-- Avoids driver rollbacks or registry hacks
-- Zero system persistence (portable)
-
 ---
 
 ## Logging and Heuristics (Debug Mode)
@@ -108,6 +101,9 @@ Regardless of Windows Quick Removal policies, the utility explicitly flushes fil
 - Uses hotplug.dll directly
 - Can be executed in the startup with simple shortcut
 - Keeps dynamic icon in tray and can be placed close to the native ejection icon (for better usability)
+- Forces explicit buffer flushing
+- Zero system persistence (portable)
+- Avoids driver rollbacks or registry hacks
 
 ---
 
