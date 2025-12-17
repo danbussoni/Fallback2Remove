@@ -108,18 +108,19 @@ Regardless of Windows Quick Removal policies, the utility explicitly flushes fil
 ---
 
 ## Project Structure
-
+```tree
 Fallback2Remove/
 ├── Source/
-│   ├── SafeRemovalTray.ahk
+│   ├── Fallback2Remove.ahk
 │   ├── tray_idle.ico
 │   └── tray_ready.ico
 ├── Scripts/
 │   └── CreateStartupShortcut.ps1
+│   └── CreateTaskSchedule.ps1
 ├── .gitignore
 ├── LICENSE
 └── README.md
-
+```
 ---
 
 ## Compilation and Portability
