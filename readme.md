@@ -1,6 +1,13 @@
 # Fallback2Remove
 ## Advanced Safely Remove Hardware Fallback Utility for Windows 11
 
+![Version](https://img.shields.io/badge/version-1.0.0-blue)
+![License](https://img.shields.io/badge/License-MIT%202.0-blue.svg)
+![GitHub stars](https://img.shields.io/github/stars/danbussoni/Fallback2Remove?style=social)
+![GitHub forks](https://img.shields.io/github/forks/danbussoni/Fallback2Remove?style=social)
+![GitHub issues](https://img.shields.io/github/issues/danbussoni/Fallback2Remove)
+![GitHub last commit](https://img.shields.io/github/last-commit/danbussoni/Fallback2Remove)
+
 Fallback2Remove is a portable system utility designed to restore reliable “Safely Remove Hardware” functionality on Windows 11, specifically in scenarios where modern high-performance storage controllers (such as the Intel USB 3.20 eXtensible Host Controller) anchor external drives into the SCSI storage stack, breaking the native Windows ejection flow.
 
 This tool is not a replacement for the Windows native removal system. It is a complementary fallback, intended for specific hardware behaviors where Windows fails to expose removable devices correctly.
