@@ -14,9 +14,10 @@ This tool is not a replacement for the Windows native removal system. It is a co
 
 ---
 
-## Core Purpose — A Complementary Solution
+## Core Purpose — A Complementary Solution and ROOT CAUSE
 
 Fallback2Remove exists to handle edge cases introduced by modern storage architectures where Windows incorrectly classifies physically removable devices as fixed or internal.
+ROOT CAUSE: Windows UPDATE (wuauserv) changed the "eXtensible Host Controller" driver within an AHCI NVMe capabilities machine that is intrinsically linked with the BIOS, resulting in no rollback scenario.
 
 ### The SCSI Anchoring Issue
 
@@ -26,6 +27,8 @@ When this happens:
 - The Windows 11 Safely Remove Hardware tray icon may disappear
 - The Eject option may fail or never appear
 - The operating system treats the drive as a fixed internal device
+- No local removing policy works (if driver is updated, as the root cause was per windows update, this breaks this option for each external hard drive device as observed in device manager)
+- Ejection is independent, whether device maintains index linkage with OS or not)
 
 This behavior is commonly observed with:
 
