@@ -106,8 +106,8 @@ Regardless of Windows Quick Removal policies, the utility explicitly flushes fil
 ### Native Implementation
 
 - Uses hotplug.dll directly
-- Avoids INACCESSIBLE_BOOT_DEVICE BSOD risks
-- No driver manipulation or rollback required
+- Can be executed in the startup with simple shortcut
+- Keeps dynamic icon in tray and can be placed close to the native ejection icon (for better usability)
 
 ---
 
