@@ -81,8 +81,6 @@ Safe Removal Audit Trail:
 - Every Open Safe Removal action logs a manual FlushFileBuffers execution
 - Confirms write cache clearance before the removal dialog appears
 
-This logging is critical for diagnosing environments where Intel controller masking causes drives to appear non-removable.
-
 ---
 
 ## Technical Notes and Safety
