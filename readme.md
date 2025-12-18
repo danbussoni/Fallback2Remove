@@ -48,7 +48,7 @@ Traditional USB pen drives and older devices classified as Storage USB Media (US
 Fallback2Remove identifies drives that are:
 
 - Physically external
-- Logically anchored inside the SCSI / Intel controller layer
+- Logically anchored inside the SCSI / Intel (or similar vendor) controller layer
 
 Once detected, it provides a safe and direct path to the native Windows removal dialog, while guaranteeing that all pending I/O operations are completed beforehand.
 
