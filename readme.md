@@ -22,7 +22,7 @@ ROOT CAUSE: Windows UPDATE (wuauserv) plus DEVICE VENDOR changed the "eXtensible
 
 The exact mechanism of the disaster: the convergence between a software update (Windows Update), a bus driver change (xHCI), and the firmware infrastructure (BIOS/RAID/VMD).
 
-The xHCI Conflict: When changing the eXtensible host controller driver, Windows redefines how the bus reports the topology of connected devices. If the primary drive is encapsulated (mapped) by the controller, a failure to identify the "Parent Device" causes the disk to appear as removable.
+The xHCI Conflict: When changing the eXtensible host controller driver, Windows redefines how the bus reports the topology of connected devices. If the primary drive is encapsulated (mapped) by the controller, a failure to identify the "Parent Device" causes the disk to appear as removable. Or the reverse, an external drive recognized as internal.
 
 The "No Rollback Scenario": When Windows Update replaces a critical bus driver on a machine with Intel VMD or RAID, it often overwrites the base binary and updates the PnP (Plug and Play) database. Attempting a manual rollback can leave the system without a boot driver, as the registry pointer points to a version that no longer communicates correctly with the BIOS memory mapping.
 
