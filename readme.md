@@ -20,6 +20,14 @@ Fallback2Remove exists to handle edge cases introduced by modern storage archite
 
 ROOT CAUSE: Windows UPDATE (wuauserv) plus DEVICE VENDOR changed the "eXtensible Host Controller" driver within an AHCI NVMe capable machine that is intrinsically linked with the BIOS (could be RAID, SATA etc), resulting in no rollback scenario. Forcibly manipulating registry entries to enable device ejection can result in a BSOD (Inaccessible Boot Device), as Windows may lose access to critical system volumes or the paging file. In modern hardware, especially laptops, storage control is integrated into the BIOS/UEFI via firmware (such as Intel VMD) for certificate validation and security. Interfering with the bus taxonomy at the registry level can generate a state conflict between the firmware and the kernel, resulting in critical instability or boot failure.
 
+The exact mechanism of the disaster: the convergence between a software update (Windows Update), a bus driver change (xHCI), and the firmware infrastructure (BIOS/RAID/VMD).
+
+The xHCI Conflict: When changing the eXtensible host controller driver, Windows redefines how the bus reports the topology of connected devices. If the primary drive is encapsulated (mapped) by the controller, a failure to identify the "Parent Device" causes the disk to appear as removable.
+
+The "No Rollback Scenario": When Windows Update replaces a critical bus driver on a machine with Intel VMD or RAID, it often overwrites the base binary and updates the PnP (Plug and Play) database. Attempting a manual rollback can leave the system without a boot driver, as the registry pointer points to a version that no longer communicates correctly with the BIOS memory mapping.
+
+ State Fault (Firmware vs. Kernel): On laptops with Secure Boot and TPM enabled, the firmware expects the disk to be in a "Standardized" state. By forcing an ejection via the registry, you break the Chain of Trust. The Kernel attempts to "unmount" something that the Firmware says is "static," generating the inconsistency that triggers Bug Check 0x7B. With this technical basis, it's clear that the script is a security workaround, not a system modification. It acts at the user interface (UI) and diagnostic layer to prevent the user from making the fatal mistake of trying to eject their own system without touching the dangerous registry keys that would cause the aforementioned BSOD.
+
 ### The SCSI Anchoring Issue
 
 On modern systems, many external drives are exposed under the SCSI bus, even when physically connected via USB.  
