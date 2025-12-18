@@ -18,7 +18,7 @@ This tool is not a replacement for the Windows native removal system. It is a co
 
 Fallback2Remove exists to handle edge cases introduced by modern storage architectures where Windows incorrectly classifies physically removable devices as fixed or internal.
 
-ROOT CAUSE: Windows UPDATE (wuauserv) plus DEVICE VENDOR changed the "eXtensible Host Controller" driver within an AHCI NVMe capabilities machine that is intrinsically linked with the BIOS, resulting in no rollback scenario.
+ROOT CAUSE: Windows UPDATE (wuauserv) plus DEVICE VENDOR changed the "eXtensible Host Controller" driver within an AHCI NVMe capabilities machine that is intrinsically linked with the BIOS (could be RAID, SATA etc), resulting in no rollback scenario.
 
 ### The SCSI Anchoring Issue
 
