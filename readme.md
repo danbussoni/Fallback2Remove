@@ -20,7 +20,7 @@ Fallback2Remove exists to handle edge cases introduced by modern storage archite
 ROOT CAUSE 1: dsmsvc (if disabled, flaw is exposed).
 ROOT CAUSE 2: Windows UPDATE (wuauserv) plus DEVICE VENDOR changed the "eXtensible Host Controller" driver within an AHCI NVMe capable machine that is intrinsically linked with the BIOS (could be RAID, SATA etc), resulting in no rollback scenario. Forcibly manipulating registry entries to enable device ejection can result in a BSOD (Inaccessible Boot Device), as Windows may lose access to critical system volumes or the paging file. In modern hardware, especially laptops, storage control is integrated into the BIOS/UEFI via firmware (such as Intel VMD) for certificate validation and security. Interfering with the bus taxonomy at the registry level can generate a state conflict between the firmware and the kernel, resulting in critical instability or boot failure.
 
-The exact mechanism of the disaster: the convergence between a software update (Windows Update), a bus driver change (xHCI), and the firmware infrastructure (BIOS/RAID/VMD).
+The exact mechanism of the disaster: the convergence between service downtime (dsmsvc), a software update (Windows Update), a bus driver change (xHCI), and the firmware infrastructure (BIOS/RAID/VMD).
 
 The xHCI Conflict: When changing the eXtensible host controller driver, Windows redefines how the bus reports the topology of connected devices. If the primary drive is encapsulated (mapped) by the controller, a failure to identify the "Parent Device" causes the disk to appear as removable. Or the reverse, an external drive recognized as internal.
 
