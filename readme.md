@@ -8,6 +8,11 @@
 ![GitHub issues](https://img.shields.io/github/issues/danbussoni/Fallback2Remove)
 ![GitHub last commit](https://img.shields.io/github/last-commit/danbussoni/Fallback2Remove)
 
+
+
+UPDATE: This project is a Proof of Concept (POC) addressing observed behavior when disabling the Windows dsmsvc service. Considering the system's legacy state and its current legacy (PnP) driver management architecture, which is now geared towards a hybrid distributed systems architecture (Microsoft Intune, Windows Update, Autopilot, Cloud Files Mini Filter Driver), issues with taxonomy conflicts, user device inventory, and other points were observed. The tool will remain as is, as it is being evolved into a real-time inventory descriptor system that, in addition to describing the hidden layers of user devices, has been extended to correctly classify their nuances and has become a real-time forensic analysis tool with spoofing and rootkit monitoring capabilities.
+
+
 Fallback2Remove is a portable system utility designed to restore reliable “Safely Remove Hardware” functionality on Windows 11, specifically in scenarios where modern high-performance storage controllers (such as the Intel USB 3.20 eXtensible Host Controller) anchor external drives into the SCSI storage stack, breaking the native Windows ejection flow.
 
 This tool is not a replacement for the Windows native removal system. It is a complementary fallback, intended for specific hardware behaviors where Windows fails to expose removable devices correctly.
